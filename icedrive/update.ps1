@@ -2,7 +2,7 @@ Import-Module Chocolatey-AU
 
 function global:au_GetLatest {
     $url = "https://icedrive.net/apps/desktop-laptop"
-    $response = Invoke-WebRequest -Uri $url
+    $response = Invoke-WebRequest -Uri $url -UseBasicParsing
     $htmlContent = $response.Content
     $urlRegex = [regex] 'https://cdn.icedrive.net/static/apps/win/Icedrive_Installer-[\d\.]+\.exe'
     $urlMatch = $urlRegex.Match($htmlContent)
