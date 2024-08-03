@@ -1,5 +1,9 @@
 Import-Module Chocolatey-AU
 
+function global:au_BeforeUpdate() {
+    Get-RemoteFiles -Purge
+}
+
 function global:au_GetLatest {
     $url = "https://icedrive.net/apps/desktop-laptop"
     $response = Invoke-WebRequest -Uri $url -UseBasicParsing
@@ -31,4 +35,4 @@ function global:au_SearchReplace {
 	}
 }
 
-update -ChecksumFor 64
+update -ChecksumFor None
