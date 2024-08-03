@@ -1,9 +1,5 @@
 Import-Module Chocolatey-AU
 
-function global:au_BeforeUpdate() {
-    Get-RemoteFiles -Purge
-}
-
 function global:au_GetLatest {
     $url = "https://icedrive.net/apps/desktop-laptop"
     $response = Invoke-WebRequest -Uri $url -UseBasicParsing
@@ -26,11 +22,13 @@ function global:au_GetLatest {
 }
 
 function global:au_SearchReplace {
-	@{
+	$checksumType64 = 'sha256'
+	$checksum64 = Get-RemoteChecksum -Url $Latest.URL64 -Algorithm $checksumType64
+	return @{
 		".\tools\chocolateyinstall.ps1" = @{
 			"(?i)(^\s*(\$)url64\s*=\s*)('.*')" = "`$1'$($Latest.URL64)'"
-			"(?i)(^\s*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
-			"(?i)(^\s*checksumType64\s*=\s*)('.*')" = "`$1'$($Latest.ChecksumType64)'"
+			"(?i)(^\s*checksum64\s*=\s*)('.*')" = "`$1'$($checksum64)'"
+			"(?i)(^\s*checksumType64\s*=\s*)('.*')" = "`$1'$($checksumType64)'"
 		}
 	}
 }
