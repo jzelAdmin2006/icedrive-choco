@@ -3,10 +3,14 @@
   <metadata>
     <id>icedrive</id>
     <version>2.75</version>
+	<packageSourceUrl>https://github.com/jzelAdmin2006/icedrive2choco</packageSourceUrl>
+	<owners>Johannes Zeller</owners>
     <title>IceDrive</title>
     <authors>ID Cloud Services LTD</authors>
     <projectUrl>https://icedrive.net/apps/desktop-laptop</projectUrl>
 	<iconUrl>https://icedrive.net/assets/frontend/img/icon-sm.png</iconUrl>
+	<mailingListUrl>https://community.icedrive.net/</mailingListUrl>
+    <bugTrackerUrl>https://icedrive.net/support/tickets</bugTrackerUrl>
     <copyright>© 2024 ID Cloud Services LTD</copyright>
     <tags>icedrive cloud storage</tags>
     <summary>IceDrive Desktop Software, cloud storage fused with physical hard drive</summary>
