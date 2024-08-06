@@ -2,7 +2,7 @@ $ErrorActionPreference = 'Stop'
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   softwareName  = 'icedrive*'
-  fileType      = 'EXE_MSI_OR_MSU'
+  fileType      = 'EXE'
   silentArgs    = "/S"
   validExitCodes= @(0, 3010, 1605, 1614, 1641)
 }
